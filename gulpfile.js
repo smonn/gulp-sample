@@ -2,7 +2,9 @@ var gulp = require('gulp');
 var del = require('del');
 var rename = require('gulp-rename');
 var less = require('gulp-less');
+var jshint = require('gulp-jshint');
 var cssMinify = require('gulp-minify-css');
+var jsMinify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 var gls = require('gulp-live-server');
 
@@ -35,6 +37,13 @@ gulp.task('scripts:clean', function (){
 
 gulp.task('scripts', ['scripts:clean'], function () {
   return gulp.src(['./src/scripts/**/*.js'])
+    .pipe(sourcemaps.init())
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'))
+    .pipe(gulp.dest('./wwwroot/scripts/'))
+    .pipe(jsMinify())
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./wwwroot/scripts/'));
 });
 

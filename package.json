@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "sample setup for nodejs with gulp, express (with live reload), html, less, javascript",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "private": true,
   "repository": {
     "type": "git",
@@ -19,11 +18,13 @@
   "devDependencies": {
     "del": "^2.0.2",
     "gulp": "^3.9.0",
+    "gulp-jshint": "^1.12.0",
     "gulp-less": "^3.0.3",
     "gulp-live-server": "0.0.29",
     "gulp-minify-css": "^1.2.1",
     "gulp-rename": "^1.2.2",
-    "gulp-sourcemaps": "^1.6.0"
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.4.2"
   },
   "dependencies": {
     "express": "^4.13.3",
