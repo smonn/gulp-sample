@@ -1,0 +1,20 @@
+{
+  "name": "gulp-sample",
+  "version": "1.0.0",
+  "description": "sample setup for nodejs with gulp, express (with live reload), html, less, javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smonn/gulp-sample.git"
+  },
+  "author": "Simon Ingeson <simon.ingeson@gmail.com> (http://www.ingeson.se/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/smonn/gulp-sample/issues"
+  },
+  "homepage": "https://github.com/smonn/gulp-sample#readme"
+}
