@@ -80,3 +80,19 @@ pre {
 .page {
   max-width: 42em;
 }
+.status {
+  background-color: #f0f0f0;
+  padding: 1.5em;
+  position: fixed;
+  right: 1.5em;
+  top: 1.5em;
+}
+@media (max-width: 50em) {
+  .page {
+    padding-top: 6em;
+  }
+  .status {
+    left: 1.5em;
+    text-align: center;
+  }
+}

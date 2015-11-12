@@ -25,11 +25,28 @@ gulp.task('styles', ['styles:clean'], function () {
     .pipe(gulp.dest('./wwwroot/styles/'));
 });
 
+gulp.task('scripts:watch', function () {
+  return gulp.watch(['./src/scripts/**/*.js'], ['scripts']);
+});
+
+gulp.task('scripts:clean', function (){
+  return del(['./wwwroot/scripts/**/*.js']);
+});
+
+gulp.task('scripts', ['scripts:clean'], function () {
+  return gulp.src(['./src/scripts/**/*.js'])
+    .pipe(gulp.dest('./wwwroot/scripts/'));
+});
+
 gulp.task('html:watch', function () {
   return gulp.watch(['./src/**/*.html'], ['html']);
 });
 
-gulp.task('html', function () {
+gulp.task('html:clean', function (){
+  return del(['./wwwwroot/**/*.html']);
+});
+
+gulp.task('html', ['html:clean'], function () {
   return gulp.src(['./src/index.html'])
     .pipe(gulp.dest('./wwwroot/'));
 });
@@ -38,12 +55,12 @@ gulp.task('server', ['watch'], function () {
   var server = gls.new('index.js');
   server.start();
 
-  gulp.watch(['wwwroot/**/*.css', 'wwwroot/**/*.css.map', 'wwwroot/**/*.html'], function (file) {
+  gulp.watch(['wwwroot/**/*.html', 'wwwroot/**/*.css', 'wwwroot/**/*.css.map', 'wwwroot/**/*.js'], function (file) {
     server.notify.apply(server, [file]);
   });
 
   gulp.watch('index.js', server.start.bind(server));
 });
 
-gulp.task('watch', ['styles:watch', 'html:watch']);
-gulp.task('default', ['html', 'styles']);
+gulp.task('watch', ['html:watch', 'styles:watch', 'scripts:watch']);
+gulp.task('default', ['html', 'styles', 'scripts']);

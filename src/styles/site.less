@@ -93,3 +93,22 @@ pre {
 .page {
   max-width: 42em;
 }
+
+.status {
+  background-color: @colorLight;
+  padding: 1.5em;
+  position: fixed;
+  right: 1.5em;
+  top: 1.5em;
+}
+
+@media (max-width: 50em) {
+  .page {
+    padding-top: unit((@lineHeight * 4), em);
+  }
+
+  .status {
+    left: unit(@lineHeight, em);
+    text-align: center;
+  }
+}
