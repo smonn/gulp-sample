@@ -1,3 +1,19 @@
+@fontSystem: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+@fontMono: Menlo, Consolas, Courier New, monospace;
+
+@lineHeight: 1.5;
+
+@colorWhite: rgb(255,255,255);
+@colorLight: rgb(240,240,240);
+@colorBlack: rgb(0,0,0);
+
+.title(@fontSize) {
+  font-size: unit(@fontSize, em);
+  font-weight: 700;
+  margin-bottom: unit((@lineHeight / @fontSize), em);
+  margin-top: 0;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -9,8 +25,71 @@ html {
 }
 
 body {
-  font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+  background-color: @colorWhite;
+  color: @colorBlack;
+  font-family: @fontSystem;
   font-size: 100%;
-  line-height: 1.5;
+  line-height: @lineHeight;
+  margin: unit(@lineHeight, em);
 }
 
+h1 {
+  .title(2);
+}
+
+h2 {
+  .title(1.75);
+}
+
+h3 {
+  .title(1.5);
+}
+
+h4 {
+  .title(1.25);
+}
+
+h5, h6 {
+  .title(1);
+}
+
+p {
+  margin-bottom: unit(@lineHeight, em);
+  margin-top: 0;
+}
+
+ol, ul {
+  margin-bottom: unit(@lineHeight, em);
+  margin-top: 0;
+  padding-left: unit(@lineHeight, em);
+}
+
+ol {
+  list-style: decimal;
+}
+
+ul {
+  list-style: square;
+}
+
+blockquote {
+  border-left: .5em solid @colorLight;
+  margin-bottom: unit(@lineHeight, em);
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-left: 1em;
+}
+
+pre {
+  background-color: @colorLight;
+  font-family: @fontMono;
+  margin-bottom: unit(@lineHeight, em);
+  margin-top: 0;
+  overflow: auto;
+  padding: unit(@lineHeight, em);
+}
+
+.page {
+  max-width: 42em;
+}

@@ -7,7 +7,76 @@ html {
   box-sizing: inherit;
 }
 body {
+  background-color: #ffffff;
+  color: #000000;
   font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
   font-size: 100%;
   line-height: 1.5;
+  margin: 1.5em;
+}
+h1 {
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 0.75em;
+  margin-top: 0;
+}
+h2 {
+  font-size: 1.75em;
+  font-weight: 700;
+  margin-bottom: 0.85714286em;
+  margin-top: 0;
+}
+h3 {
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-bottom: 1em;
+  margin-top: 0;
+}
+h4 {
+  font-size: 1.25em;
+  font-weight: 700;
+  margin-bottom: 1.2em;
+  margin-top: 0;
+}
+h5,
+h6 {
+  font-size: 1em;
+  font-weight: 700;
+  margin-bottom: 1.5em;
+  margin-top: 0;
+}
+p {
+  margin-bottom: 1.5em;
+  margin-top: 0;
+}
+ol,
+ul {
+  margin-bottom: 1.5em;
+  margin-top: 0;
+  padding-left: 1.5em;
+}
+ol {
+  list-style: decimal;
+}
+ul {
+  list-style: square;
+}
+blockquote {
+  border-left: 0.5em solid #f0f0f0;
+  margin-bottom: 1.5em;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  padding-left: 1em;
+}
+pre {
+  background-color: #f0f0f0;
+  font-family: Menlo, Consolas, Courier New, monospace;
+  margin-bottom: 1.5em;
+  margin-top: 0;
+  overflow: auto;
+  padding: 1.5em;
+}
+.page {
+  max-width: 42em;
 }
