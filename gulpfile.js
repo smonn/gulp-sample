@@ -2,9 +2,11 @@ var gulp = require('gulp');
 var del = require('del');
 var rename = require('gulp-rename');
 var less = require('gulp-less');
+var autoprefixer = require('gulp-autoprefixer');
 var jshint = require('gulp-jshint');
 var cssMinify = require('gulp-minify-css');
 var jsMinify = require('gulp-uglify');
+var htmlMinify = require('gulp-minify-html');
 var sourcemaps = require('gulp-sourcemaps');
 var gls = require('gulp-live-server');
 
@@ -20,6 +22,7 @@ gulp.task('styles', ['styles:clean'], function () {
   return gulp.src(['./src/styles/site.less'])
     .pipe(sourcemaps.init())
     .pipe(less())
+    .pipe(autoprefixer())
     .pipe(gulp.dest('./wwwroot/styles/'))
     .pipe(cssMinify())
     .pipe(rename({ suffix: '.min' }))
@@ -57,6 +60,7 @@ gulp.task('html:clean', function (){
 
 gulp.task('html', ['html:clean'], function () {
   return gulp.src(['./src/index.html'])
+    .pipe(htmlMinify())
     .pipe(gulp.dest('./wwwroot/'));
 });
 

@@ -11,8 +11,14 @@ function animate(fn) {
   fn();
 }
 
+function updateText(element) {
+  return function () {
+    element.textContent = getScrollOffset().y;
+  };
+}
+
 function ready(fn) {
-  if (document.readyState !== 'loading'){
+  if (document.readyState !== 'loading') {
     fn();
   } else {
     document.addEventListener('DOMContentLoaded', fn);
@@ -21,10 +27,7 @@ function ready(fn) {
 
 function run() {
   var status = document.getElementById('scroll-status');
-  var updateStatus = function () {
-    status.textContent = getScrollOffset().y;
-  };
-  animate(updateStatus);
+  animate(updateText(status));
 }
 
 ready(run);
