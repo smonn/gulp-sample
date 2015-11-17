@@ -1,33 +1,33 @@
+(function () {
 
-function getScrollOffset() {
-  return {
-    x: window.scrollX,
-    y: window.scrollY
-  };
-}
-
-function animate(fn) {
-  requestAnimationFrame(function () { animate(fn); });
-  fn();
-}
-
-function updateText(element) {
-  return function () {
-    element.textContent = getScrollOffset().y;
-  };
-}
-
-function ready(fn) {
-  if (document.readyState !== 'loading') {
-    fn();
-  } else {
-    document.addEventListener('DOMContentLoaded', fn);
+  function getScrollOffsetY() {
+    return window.scrollY;
   }
-}
 
-function run() {
-  var status = document.getElementById('scroll-status');
-  animate(updateText(status));
-}
+  function animate(fn) {
+    requestAnimationFrame(function () { animate(fn); });
+    fn();
+  }
 
-ready(run);
+  function updateText(element, fn) {
+    return function () {
+      element.textContent = fn();
+    };
+  }
+
+  function ready(fn) {
+    if (document.readyState !== 'loading') {
+      fn();
+    } else {
+      document.addEventListener('DOMContentLoaded', fn);
+    }
+  }
+
+  function run() {
+    var status = document.getElementById('scroll-status');
+    animate(updateText(status, getScrollOffsetY));
+  }
+
+  ready(run);
+
+}());
