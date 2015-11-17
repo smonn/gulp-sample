@@ -1,7 +1,7 @@
-(function (window, document) {
+(function (win, doc) {
 
   function getScrollOffsetY() {
-    return window.scrollY;
+    return win.scrollY;
   }
 
   function animate(fn) {
@@ -16,15 +16,15 @@
   }
 
   function ready(fn) {
-    if (document.readyState !== 'loading') {
+    if (doc.readyState !== 'loading') {
       fn();
     } else {
-      document.addEventListener('DOMContentLoaded', fn);
+      doc.addEventListener('DOMContentLoaded', fn);
     }
   }
 
   function run() {
-    var status = document.getElementById('scroll-status');
+    var status = doc.getElementById('scroll-status');
     animate(updateText(status, getScrollOffsetY));
   }
 
