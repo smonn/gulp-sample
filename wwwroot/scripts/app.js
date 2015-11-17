@@ -1,4 +1,4 @@
-(function () {
+(function (window, document) {
 
   function getScrollOffsetY() {
     return window.scrollY;
@@ -30,4 +30,4 @@
 
   ready(run);
 
-}());
+}(window, document));
